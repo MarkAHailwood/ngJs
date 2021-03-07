@@ -1,0 +1,38 @@
+﻿@model ngjs1.Models.Artist
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-csp.min.css">
+
+
+<h1>Edit</h1>
+
+<h4>Artist</h4>
+<hr />
+<div class="row" ng-app="myApp">
+    <div class="col-md-4">
+        <form ng-controller="editController" ng-init="fetchRecord(999)">  
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input type="text" ng-model="nameVal" class="form-control" placeholder="{{test.data.Name}}" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Rating</label>
+                <input ng-model="ratingVal" type="text" class="form-control" placeholder="{{test.data.Rating}}" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" ng-click="saveEdit(nameVal, ratingVal)"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="~/js/site.js"></script>

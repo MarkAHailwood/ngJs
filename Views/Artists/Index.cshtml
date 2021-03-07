@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ngjs1.Models.Artist>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-csp.min.css">
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<body ng-app="myApp" class="ng-cloak">
+    <div ng-controller='IndexController' data-ng-init="populateScreen()">
+
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="emps in records.data.Result">
+                <td>{{emps.Name}}</td>
+                <td>{{emps.Rating}}</td>
+                <td>
+                    <a ng-controller="editController" ng-click="fetchRecord(emps.Id)" style="cursor:pointer">Edit</a> |
+                    <a ng-click="removeMe(emps.Id)" style="cursor:pointer">Delete</a>
+                </td>
+            </tr>
+        </table>
+        {{testArray}}
+    </div>
+</body>
+<script src="~/js/site.js"></script>
+

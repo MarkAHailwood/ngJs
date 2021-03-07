@@ -1,0 +1,40 @@
+﻿@model ngjs1.Models.Artist
+
+@{
+    ViewData["Title"] = "Create";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-csp.min.css">
+<body ng-app="saveScreen">
+    <div ng-controller='saveController as sc' class="ng-cloak">
+        <h1>Create</h1>
+
+        <h4>Artist</h4>
+        {{sc.done}}
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group input-group-sm">
+                    <label for="Named" class="control-label">Name</label>
+                    <input ng-model="name" class="form-control" id="Named"/>
+                </div>
+                <div class="form-group input-group-sm">
+                    <label for="Ratingd" class="control-label">Rating</label>
+                    <input ng-model="rating" class="form-control" id="Ratingd"/>
+                </div>
+                <button ng-click="sc.pumpkins(name,rating)" class="btn btn-success btn-sm">Submit</button>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+    </div>
+</body>
+<script src="~/js/site2.js"></script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
